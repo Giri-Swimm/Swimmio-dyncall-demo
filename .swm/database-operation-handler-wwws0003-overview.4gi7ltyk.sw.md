@@ -3,22 +3,30 @@ title: Database Operation Handler (WWWS0003) - Overview
 ---
 # Overview
 
-This document describes the flow for managing store data operations. The process validates the environment and input, determines the requested business operation, and ensures that location, retail ledger, and clearance zone data are processed in the correct sequence to maintain consistency across retail operations.
+This document describes the flow for managing the lifecycle of store and retail location records. The process validates input, enforces business rules for clearance zones and product classes, and performs retrieval, modification, insertion, or deletion of records, ensuring data consistency across related entities.
 
 ```mermaid
 flowchart TD
-    node1["Environment and Store Setup"]:::HeadingStyle --> node2{"Operation Dispatch and Finalization
-(Operation Dispatch and Finalization)"}:::HeadingStyle
-    click node1 goToHeading "Environment and Store Setup"
-    click node2 goToHeading "Operation Dispatch and Finalization"
-    node2 -->|"Retrieve"| node3["Location, Retail, and Zone Data Retrieval"]:::HeadingStyle
-    click node3 goToHeading "Location, Retail, and Zone Data Retrieval"
-    node2 -->|"Modify"| node4["Modifying Store Data Records"]:::HeadingStyle
-    click node4 goToHeading "Modifying Store Data Records"
-    node2 -->|"Insert"| node5["Chained Insert Operations for Store Data"]:::HeadingStyle
-    click node5 goToHeading "Chained Insert Operations for Store Data"
-    node2 -->|"Purge"| node6["Purging Store Location Data"]:::HeadingStyle
-    click node6 goToHeading "Purging Store Location Data"
+  node1["Initializing environment and store type"]:::HeadingStyle
+  click node1 goToHeading "Initializing environment and store type"
+  node1 --> node2["Validating and preparing input data"]:::HeadingStyle
+  click node2 goToHeading "Validating and preparing input data"
+  node2 --> node3{"Which business operation?"}
+  node3 -->|"Retrieve"| node4["Processing unique row and related records"]:::HeadingStyle
+  click node4 goToHeading "Processing unique row and related records"
+  node3 -->|"Modify"| node5["Modifying and saving store records"]:::HeadingStyle
+  click node5 goToHeading "Modifying and saving store records"
+  node3 -->|"Insert"| node6["Inserting new store records"]:::HeadingStyle
+  click node6 goToHeading "Inserting new store records"
+  node3 -->|"Purge"| node7["Purging location record with translation and error handling"]:::HeadingStyle
+  click node7 goToHeading "Purging location record with translation and error handling"
+  node4 --> node8{"Is location a store?"}
+  node5 --> node8
+  node6 --> node8
+  node8 -->|"Yes"| node9["Iterating and updating clearance zones"]:::HeadingStyle
+  click node9 goToHeading "Iterating and updating clearance zones"
+  node8 -->|"No"| node10["Deleting all clearance zones for a store"]:::HeadingStyle
+  click node10 goToHeading "Deleting all clearance zones for a store"
 classDef HeadingStyle fill:#777777,stroke:#333,stroke-width:2px;
 ```
 
