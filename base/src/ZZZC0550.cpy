@@ -1,0 +1,119 @@
+000100 01 ZZZC0550.                                                     00000100
+000200     05 ZZZC0550-TRX                    PIC X(4)    VALUE SPACES. 00000200
+000300        88 REAL-TIME-RETAIL                         VALUE 'RTLR'. 00000300
+000400        88 SCHEDULED-TIME-RETAIL                    VALUE 'RTLS'. 00000400
+000500        88 ZONE-MOVE-EVENT                          VALUE 'ZNMV'. 00000500
+000600        88 AUTHORIZATION-EVENT                      VALUE 'AUTH'. 00000600
+000700        88 UNAUTHORIZATION-EVENT                    VALUE 'UNAT'. 00000700
+000800        88 NEW-ITEM-EVENT                           VALUE 'NITM'. 00000800
+000900        88 PRODUCT-EVENT                            VALUE 'PROD'. 00000900
+001000        88 PRODUCT-UPDATE-EVENT                     VALUE 'PUPD'. 00001000
+001100        88 VENDOR-EVENT                             VALUE 'VNDR'. 00001100
+001200        88 VENDOR-DELETE-EVENT                      VALUE 'DVND'. 00001200
+001300*       88 AP-VENDOR-EVENT                          VALUE 'APVR'. 00001300
+001400        88 DEPARTMENT-EVENT                         VALUE 'DEPT'. 00001400
+001500        88 COST-EVENT-PROCESS                       VALUE 'CSTP'. 00001500
+001600        88 COST-OLD-EVENT                           VALUE 'CSTO'. 00001600
+001700        88 STORE-INTIAL-LOAD-EVENT                  VALUE 'SITR'. 00001700
+001800        88 PRODUCT-DESC-EVENT                       VALUE 'PDES'. 00001800
+001900        88 PRODUCT-FIELDS-UPDATE                    VALUE 'PRDU'. 00001900
+002000        88 ITEM-FIELDS-UPDATE                       VALUE 'ITMU'. 00002000
+002100        88 FAMILY-CODES-EVENT                       VALUE 'FMCD'. 00002100
+002200        88 WAREHOUSE-COST-EVENT                     VALUE 'WCST'. 00002200
+002300        88 NEW-ITEM-WRAPPER-EVENT                   VALUE 'NITW'. 00002300
+002400        88 BLOCK-TAG                                VALUE 'TAGB'. 00002400
+002500        88 FORCE-TAG                                VALUE 'TAGF'. 00002500
+002600        88 RETAIL-DELETE-EVENT                      VALUE 'RTLD'. 00002600
+002700        88 ITEM-DELETE-EVENT                        VALUE 'IDEL'. 00002700
+002800        88 HIER-EVENT                               VALUE 'HIER'. 00002800
+002900        88 COMPETITOR-EVENT                         VALUE 'COMP'. 00002900
+003000*       88 ECOMM-PROD-EVENT                         VALUE 'EPRD'. 00003000
+003100        88 WIC-CHANGE-EVENT                         VALUE 'WICE'. 00003100
+003200     05 OPERATIION                      PIC 9(1)    VALUE 0.      00003200
+003300        88 ADD-OPERATION                            VALUE 1.      00003300
+003400        88 MODIFY-OPERATION                         VALUE 2.      00003400
+003500        88 DELETE-OPERATION                         VALUE 3.      00003500
+003600     05 ZZZC0550-IN-DATA                PIC X(4091) VALUE SPACES. 00003600
+003700     05 ZZZC0550-RETAIL-DATA    REDEFINES ZZZC0550-IN-DATA.       00003700
+003800        10 UPC                          PIC 9(17).                00003800
+003900        10 ZONE-NO                      PIC 9(5).                 00003900
+004000        10 STORE-NO                     PIC 9(5).                 00004000
+004100        10 EFFECTIVE-DATE               PIC X(10).                00004100
+004200        10 FILLER                       PIC X(4054).              00004200
+004300     05 ZZZC0550-ZONE-MOVE-DATA REDEFINES ZZZC0550-IN-DATA.       00004300
+004400        10 MOVED-STORE                  PIC 9(5).                 00004400
+004500        10 OLD-ZONE-NO                  PIC 9(5).                 00004500
+004600        10 NEW-ZONE-NO                  PIC 9(5).                 00004600
+004700        10 ZNMV-EFFECTIVE-DATE          PIC X(10).                00004700
+004800        10 FILLER                       PIC X(4066).              00004800
+004900     05 ZZZC0550-AUTH-EVNT-DATA REDEFINES ZZZC0550-IN-DATA.       00004900
+005000        10 VEND-LOC-NBR                 PIC 9(9).                 00005000
+005100        10 VEND-LOC-TYP-CD              PIC X(2).                 00005100
+005200        10 ITM-ID                       PIC 9(17).                00005200
+005300        10 ITM-KEY-TYP-CD               PIC X(5).                 00005300
+005400        10 LOC-NBR                      PIC 9(9).                 00005400
+005500        10 LOC-TYP-CD                   PIC X(2).                 00005500
+005600        10 AUTHN-SW                     PIC X(1).                 00005600
+005700        10 UNATH-DT                     PIC X(10).                00005700
+005800        10 AUTH-DT                      PIC X(10).                00005800
+005900        10 STR-DEPT-NBR                 PIC X(5).                 00005900
+006000        10 STR-SUB-DEPT-ID              PIC X(5).                 00006000
+006100        10 SUP-PK-QTY                   PIC 9(9).                 00006100
+006200        10 ORDERING-UPC                 PIC 9(17).                00006200
+006300        10 STR-RLTM-SCN-MAINT-SW        PIC X(1).                 00006300
+006400        10 FILLER                       PIC X(3989).              00006400
+006500     05 ZZZC0550-ITEM-DATA      REDEFINES ZZZC0550-IN-DATA.       00006500
+006600        10 SCN-CD-ID                    PIC 9(17).                00006600
+006700        10 PROD-ID                      PIC 9(9) .                00006700
+006800        10 EFFECTIVE-DATE               PIC X(10).                00006800
+006900        10 ITM-KEY-TYP-CD               PIC X(5) .                00006900
+007000        10 ITM-ID                       PIC 9(17).                00007000
+007100        10 ASSOC-UPC-NO                 PIC 9(17).                00007100
+007200        10 VEND-LOC-TYP-CD              PIC X(2) .                00007200
+007300        10 VEND-LOC-NBR                 PIC 9(9) .                00007300
+007400        10 STR-TYP-CD                   PIC X(2).                 00007400
+007500        10 STR-NBR                      PIC 9(5).                 00007500
+007600        10 WHSE-LOC-TYP-CD              PIC X(2) .                00007600
+007700        10 WHSE-LOC-NBR                 PIC 9(9) .                00007700
+007800        10 LINK-CD                      PIC 9(07).                00007800
+007900        10 FILLER                       PIC X(3976).              00007900
+008000     05 ZZZC0550-DEPT-DATA   REDEFINES ZZZC0550-IN-DATA.          00008000
+008100        10 LOC-TYP-CD                   PIC X(2).                 00008100
+008200        10 LOC-NBR                      PIC 9(9).                 00008200
+008300        10 STR-DEPT-NBR                 PIC X(5).                 00008300
+008400        10 STR-SUB-DEPT-ID              PIC X(5).                 00008400
+008500        10 STR-RLTM-SCN-MAINT-SW        PIC X(1).                 00008500
+008600        10 FILLER                       PIC X(4069).              00008600
+008700     05 ZZZC0550-VENDOR-DATA REDEFINES ZZZC0550-IN-DATA.          00008700
+008800        10 VEND-TYP-CD                  PIC X(2).                 00008800
+008900        10 VEND-NBR                     PIC 9(9).                 00008900
+009000        10 AP-VEND-TYP-CD               PIC X(2).                 00009000
+009100        10 AP-VEND-NBR                  PIC 9(9).                 00009100
+009200        10 LOC-GRP-ID                   PIC 9(9).                 00009200
+009300        10 STORE-LOC-NBR                PIC 9(9).                 00009300
+009400        10 STORE-TYP-CD                 PIC X(2).                 00009400
+009500        10 STR-DEPT-NBR                 PIC 9(5).                 00009500
+009600        10 STR-SUB-DEPT-ID              PIC X(3).                 00009600
+009700        10 STR-RLTM-SCN-MAINT-SW        PIC X(1).                 00009700
+009800        10 FILLER                       PIC X(4040).              00009800
+009900     05 ZZZC0550-CSTP-DATA REDEFINES ZZZC0550-IN-DATA.            00009900
+010000        10 ITM-ID                       PIC 9(17).                00010000
+010100        10 ITM-KEY-TYP-CD               PIC X(5).                 00010100
+010200        10 VEND-LOC-NBR                 PIC 9(9).                 00010200
+010300        10 VEND-LOC-TYP-CD              PIC X(2).                 00010300
+010400        10 STORE-NO                     PIC 9(5).                 00010400
+010500        10 EFFECTIVE-DATE               PIC X(10).                00010500
+010600        10 FILLER                       PIC X(4043).              00010600
+010700     05 ZZZC0550-CSTO-DATA REDEFINES ZZZC0550-IN-DATA.            00010700
+010800        10 CUST-LOC-NBR                 PIC 9(9).                 00010800
+010900        10 CUST-LOC-TYP-CD              PIC X(2).                 00010900
+011000        10 ITM-ID                       PIC 9(17).                00011000
+011100        10 ITM-KEY-TYP-CD               PIC X(5).                 00011100
+011200        10 SPLR-LOC-NBR                 PIC 9(9).                 00011200
+011300        10 SPLR-LOC-TYP-CD              PIC X(2).                 00011300
+011400        10 SEQ-NBR                      PIC 9(15).                00011400
+011500        10 DEPT-ID                      PIC 9(5).                 00011500
+011600        10 SUB-DEPT-ID                  PIC X(3).                 00011600
+011700        10 SPLR-LOC-GRP-ID              PIC 9(9).                 00011700
+011800        10 FILLER                       PIC X(4015).              00011800
+

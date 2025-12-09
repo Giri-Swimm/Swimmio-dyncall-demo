@@ -1,0 +1,15 @@
+000100 01 MMMC9012.                                                     00000100
+000110     05 MMMC9012-DIRECTION           PIC X(1)  VALUE SPACES.      00000110
+000120         88 MMMC9012-CONV-TO-DB2               VALUE '1'.         00000120
+000130         88 MMMC9012-CONV-FROM-DB2             VALUE '2'.         00000130
+000200     05 MMMC9012-PICTURE             PIC X(1)  VALUE SPACES.      00000200
+000300         88 MMMC9012-PIC-N8-MMDDYYYY           VALUE '1'.         00000300
+000310         88 MMMC9012-PIC-N8-YYYYMMDD           VALUE '2'.         00000310
+000400         88 MMMC9012-PIC-N6-MMDDYY             VALUE '3'.         00000400
+000410         88 MMMC9012-PIC-N6-YYMMDD             VALUE '4'.         00000410
+000411         88 MMMC9012-PIC-P7-MMDDYY             VALUE '5'.         00000411
+000420         88 MMMC9012-PIC-P7-YYMMDD             VALUE '6'.         00000420
+000430         88 MMMC9012-PIC-X10-YYYYHMMHDD        VALUE '7'.         00000430
+000440         88 MMMC9012-PIC-N7-YYYYJJJ            VALUE '8'.         00000440
+001000     05 FILLER                       PIC X(90) VALUE SPACES.      00001000
+

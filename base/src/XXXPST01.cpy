@@ -1,0 +1,159 @@
+
+        01  XXXPST01.
+          03  ST-STORE-KEY.
+            05  ST-STORE-NUMBER                PIC 9(05).
+      *     05  ST-STORE-NO-REDEF REDEFINES
+      *                                 ST-STORE-NUMBER.
+      *       07  FILLER                       PIC X(02).
+      *       07  GL-STORE-NUMBER              PIC 9(03).
+          03  ST-XXXPST01-DATA.
+            05  ST-STORE-NAME                  PIC X(30).
+            05  ST-STORE-TYPE                  PIC X(01).
+              88  ST-BACKHAUL-POINT            VALUE 'B'.
+              88  ST-XXX-ACCOUNT               VALUE 'A'.
+              88  ST-XXX-STORE                 VALUE 'S'.
+              88  ST-XXX-TERMINAL              VALUE 'T'.
+            05  ST-STORE-DIRECTORS-NAME.
+              07  ST-FIRST-NAME                PIC X(13).
+              07  ST-INIT                      PIC X(01).
+              07  ST-LAST-NAME                 PIC X(15).
+              07  FILLER                       PIC X(01).
+            05  ST-STORE-LOCATION              PIC X(30).
+            05  ST-STORE-DATES.
+              07  ST-OPENING-DATE              PIC 9(07) COMP-3.
+              07  ST-CLOSING-DATE              PIC 9(07) COMP-3.
+              07  ST-REMODEL-DATE              PIC 9(07) COMP-3.
+              07  ST-DELETE-DATE               PIC 9(07) COMP-3.
+            05  ST-STORE-CODES.
+              07  ST-DISTRICT-CODE             PIC 9(03) COMP-3.
+              07  ST-MARKET-AREA               PIC 9(03) COMP-3.
+              07  ST-PAYROLL-AREA              PIC 9(03) COMP-3.
+              07  ST-PAY-GROUP                 PIC 9(03) COMP-3.
+              07  ST-COMPANY-NUMBER            PIC 9(03) COMP-3.
+              07  ST-GEOGRAPHIC-ZONE.
+                09  ST-GEO-ZONE-ALPHA          PIC X(01).
+                09  ST-GEO-ZONE-NUMERIC        PIC 9(03) COMP-3.
+              07  ST-SCAN-ITEM-MAINTENANCE     PIC X(01).
+              07  ST-SCAN-FRONT-END-TYPE       PIC X(01).
+                88  ST-ACR-SCAN                VALUE 'A'.
+                88  ST-DATA-CHECKER-SCAN       VALUE 'D'.
+                88  ST-NCR-SCAN                VALUE 'C'.
+                88  ST-NOT-A-SCAN-STORE        VALUE 'N'.
+                88  ST-VIPER                   VALUE 'V'.
+              07  ST-PRICE-BULLETINS           PIC X(01).
+              07  ST-UPCS-ON-PRICE-BLTNS       PIC X(01).
+              07  ST-COMPETITOR-CODE           PIC 9(02).
+              07  ST-ASSOCIATED-STORE          PIC 9(05).
+              07  FILLER                       PIC X(14).
+            05  ST-MISCELLANEOUS-IDENTIFIERS.
+              07  ST-REPORTING-SEQUENCE-NO     PIC X(04).
+              07  ST-SORT-SEQUENCE-SOS         PIC X(04).
+              07  ST-VIDEO-PRICE-ZONE          PIC 9(05) COMP-3.
+              07  ST-CITY-IDENTIFIER           PIC S9(03) COMP-3.
+              07  ST-ADZONE.
+                09  ST-ADZONE-ABBREV           PIC X(01).
+                09  ST-ADZONE-DESC             PIC X(06).
+            05  ST-STORE-FLAGS.
+              07  ST-UNLOAD-FACILITY-FLAG      PIC X(01).
+              07  FN-ROLLUP-REPT-CD OCCURS 00010 TIMES
+                            INDEXED BY FNRC
+                                               PIC 9(03) COMP-3.
+              07  ST-STATUS-FLAG               PIC X(01).
+                88  ST-ACTIVE                  VALUE 'A'.
+                88  ST-INACTIVE                VALUE 'I'.
+                88  ST-NO-DEPTS                VALUE 'X'.
+              07  ST-NEW-STORE-FLAG            PIC X(01).
+                88  ST-NEW-STORE               VALUE 'Y'.
+                88  ST-NOT-NEW-STORE           VALUE 'N'.
+              07  ST-FACILITY-TYPE             PIC 9(02).
+              07  ST-FACILITY-GROUP            PIC X(02).
+              07  ST-SELECT-CIRCLE-FLAG        PIC X(01).
+                88  ST-ON-SELECT-CIRCLE        VALUE 'Y'.
+              07  FILLER                       PIC X(06).
+            05  ST-TRANSPORTATION-SPECS.
+              07  ST-TELEPHONE-NUMBER.
+                09  ST-AREA-CODE               PIC S9(03) COMP-3.
+                09  ST-PHONE-NUMBER            PIC S9(07) COMP-3.
+              07  ST-STORE-NAME-ABBREV         PIC X(05).
+              07  ST-BACKROOM-SQ-FT            PIC 9(05) COMP-3.
+              07  ST-LINEAR-FT-FOOD            PIC 9(05) COMP-3.
+              07  ST-LINEAR-FT-NON-FOOD        PIC 9(05) COMP-3.
+              07  ST-SET-OFF-ROOM-FLAG         PIC X(01).
+                88  ST-NO-SET-OFF-ROOM         VALUE 'N'.
+                88  ST-SET-OFF-ROOM            VALUE 'Y'.
+              07  FILLER                       PIC X(14).
+            05  ST-CLASS12-ZONE                PIC S9(03) COMP-3.
+            05  ST-CLASS12-EXCEPTION-AD-ZONE   PIC S9(03) COMP-3.
+            05  ST-CLASS13-ZONE                PIC S9(03) COMP-3.
+            05  ST-CLASS13-EXCEPTION-AD-ZONE   PIC S9(03) COMP-3.
+            05  ST-CLASS14-ZONE                PIC S9(03) COMP-3.
+            05  ST-CLASS14-EXCEPTION-AD-ZONE   PIC S9(03) COMP-3.
+            05  ST-CLASS36-EXCEPTION-AD-ZONE   PIC S9(03) COMP-3.
+            05  ST-CLASS37-EXCEPTION-AD-ZONE   PIC S9(03) COMP-3.
+            05  ST-DEA-NUMBER                  PIC X(09).
+            05  ST-RETAIL-ZONE                 PIC S9(03) COMP-3.
+            05  ST-STORE-LOCATION-2            PIC X(30).
+            05  ST-CITY                        PIC X(30).
+            05  ST-STATE                       PIC X(02).
+            05  ST-ZIP-FIRST-5                 PIC X(05).
+            05  ST-ZIP-LAST-4                  PIC X(04).
+            05  ST-SOS-HDR-DATA.
+              07  ST-SOS-STORE-TYPE            PIC X(02).
+                88  ST-LESS-THAN-225000        VALUE 'C '.
+                88  ST-150000-225000           VALUE 'B '.
+                88  ST-225000-300000           VALUE 'A '.
+                88  ST-300000-375000           VALUE 'AA'.
+                88  ST-375000-PLUS             VALUE 'SS'.
+              07  FILLER                       PIC X(01).
+              07  ST-SOS-HDR-DONT-PROCESS-FLAG PIC X(01).
+              07  FILLER                       PIC X(21).
+              07  ST-SOS-HDR-STORE-TYPE        PIC 9(02).
+                88  ST-BODEGA                  VALUE 6.
+                88  ST-CONVENTIONAL            VALUE 3.
+                88  ST-CORE-STORE              VALUE 1 2 3 7.
+                88  ST-MARKETPLACE             VALUE 7.
+                88  ST-MEXICO                  VALUE 9.
+                88  ST-MEXICO-BORDER           VALUE 8.
+                88  ST-PANTRY                  VALUE 5.
+                88  ST-SUPER-FOOD              VALUE 2.
+                88  ST-SUPER-STORE             VALUE 1.
+                88  ST-VIDEO                   VALUE 4.
+            05  ST-ITEM-CAT-CLASS-TABLE.
+              07  ST-ITEM-CAT-CLASS-DATA.
+                09  ST-ITEM-CAT-CLASS OCCURS 00074 TIMES
+                                               PIC X(01).
+            05  FC-CK-COLL-DTA.
+              07  FC-CK-COLL-REPT-SW           PIC X(01).
+              07  FC-CK-ADD-DEL-SW             PIC X(01).
+              07  FC-CK-COLL-CNTR-CD           PIC X(01).
+              07  FC-CK-ALT-STR-NO             PIC 9(05).
+              07  FC-CK-COLL-FEE-AMT           PIC S9(03)V9(02) COMP-3.
+            05  FILLER                         PIC X(15).
+            05  Z99NSTOR-LONG-LAT.
+              07  Z99NSTOR-LAT                 PIC 9(02)V9(02).
+              07  Z99NSTOR-LAT-R REDEFINES Z99NSTOR-LAT.
+                09  LAT-DEGREES                PIC 9(02).
+                09  LAT-MINUTES                PIC 9(02).
+                09  LAT-HUNDREDS REDEFINES LAT-MINUTES
+                                               PIC V9(02).
+              07  Z99NSTOR-LONG                PIC 9(03)V9(02).
+              07  Z99NSTOR-LONG-R REDEFINES
+                                        Z99NSTOR-LONG.
+                09  LONG-DEGREES               PIC 9(03).
+                09  LONG-MINUTES               PIC 9(02).
+                09  LONG-HUNDREDS REDEFINES
+                                        LONG-MINUTES
+                                               PIC V9(02).
+            05  FN-DIVISION-CD                 PIC S9(03) COMP-3.
+            05  FN-LINE-OF-BUS-CD              PIC S9(03) COMP-3.
+            05  SALE-TAX-PCT                   PIC S9(02)V9(03) COMP-3.
+            05  SOAP-SALE-VAR-PCT              PIC S9(03) COMP-3.
+            05  ST-SRS-SYS-CD                  PIC X.
+                88  ST-SRS-CENTRAL-SYS         VALUE 'C'.
+                88  ST-SRS-DISTRIB-SYS         VALUE 'D'.
+                88  ST-SRS-BOTH-SYS            VALUE 'B'.
+            05  SRS-DSD-ORDR-SW                PIC X.
+                88  SRS-DSD-ORDR-ON            VALUE 'Y'.
+                88  SRS-DSD-ORDR-OFF           VALUE 'N'.
+            05  FILLER                         PIC X(16).
+
